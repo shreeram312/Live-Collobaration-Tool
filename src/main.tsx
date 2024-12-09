@@ -10,8 +10,8 @@ import ExcalidrawComponent from "./App";
 
 createRoot(document.getElementById("root")!).render(
   //@ts-ignore
-  <LiveblocksProvider publicApiKey={"YOUR_PUBLIC_API_KEY"}>
-    <RoomProvider id="my-room">
+  <LiveblocksProvider publicApiKey={""}>
+    <RoomProvider id="my-room" initialPresence={{ cursor: null }}>
       <ClientSideSuspense fallback={<div>Loading…</div>}>
         <ExcalidrawComponent />
       </ClientSideSuspense>
