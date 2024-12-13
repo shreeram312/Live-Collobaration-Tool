@@ -8,7 +8,18 @@ import ExcalidrawComponent from "./App";
 import { LiveList } from "@liveblocks/client";
 
 createRoot(document.getElementById("root")!).render(
-  <LiveblocksProvider publicApiKey="">
+  <LiveblocksProvider
+    publicApiKey=""
+    resolveUsers={async ({ userIds }) => {
+      // ["marc@example.com", "nimesh@example.com"];
+      console.log(userIds);
+
+      return [
+        { name: "Marc", avatar: "https://example.com/marc.png" },
+        { name: "Nimesh", avatar: "https://example.com/nimesh.png" },
+      ];
+    }}
+  >
     <RoomProvider
       id="my-room"
       initialPresence={{ cursor: null }}
